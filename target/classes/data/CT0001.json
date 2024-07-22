@@ -1,0 +1,15 @@
+{
+	"registrationType":"Pessoa Física",
+	"name":"João Antonio da Silva",
+	"cpf":"83277866521",
+	"fantasyName":"",
+	"corporateName":"",
+	"cnpj":"",
+	"telephone":"1139117000",
+	"cellPhone":"11988887777",
+	"email":"joaoantonio@gmail.com",
+	"customerAuthorizesSendingOfInformationByEmail":"Sim",
+	"inconsistencyMessage":"",
+	"displaysRegistrationConfirmationMessage":"",
+	"displaysConfirmationMessageBeforeClearingFields":""
+}
