@@ -1,4 +1,4 @@
-package com.github.marcosws.singleregistration.model.enums;
+package com.github.marcosws.singleregistration.data.enums;
 
 public enum RegistrationType {
 	

@@ -1,20 +1,81 @@
 #language: pt
 #Author: marcosws@ymail.com - Marcos Willian de Souza
+#Início do Projeto: 13/07/2024
 
 @Global @CadastroUnico
 Funcionalidade: realizar o cadastro de cliente no Cadastro Único
 
-	@CT0001 @Alto @Positivo
+	@CT0001 @DataJson @Chrome @Alto @Positivo
 	Cenário: Realizar o cadastro de cliente para pessoa física sem parametrização (Apresentar caixa de dialogo) preenchendo todos os campos com dados válidos.
-	Dado que acesso a pagina inicial do Cadastro Único
-	Quando preencher o cadastro de cliente para pessoa física com os dados e enviar o formulário
-	Então valido a proxima pagina com os dados enviados do cadastro de pessoa física
+		Dado que acesso a pagina inicial do Cadastro Único
+		Quando preencher o cadastro de cliente para pessoa física com os dados e enviar o formulário
+		Então valido a proxima pagina com os dados enviados do cadastro de pessoa física
 	
-	@CT0002 @Alto @Negativo
+	@CT0002 @DataJson @Chrome @Alto @Negativo
 	Cenário: Realizar o cadastro de cliente para pessoa física sem parametrização (Apresentar caixa de dialogo) omitindo o preenchimento do campo Nome e preenchendo demais campos com dados válidos.
-	Dado que acesso a pagina inicial do Cadastro Único
-	Quando preencher o cadastro de cliente para pessoa física com os dados e enviar o formulário
-	Então valido a mensagem Nome é obrigatório! na caixa de dialogo
+		Dado que acesso a pagina inicial do Cadastro Único
+		Quando preencher o cadastro de cliente para pessoa física com os dados e enviar o formulário
+		Então valido a mensagem Nome é obrigatório! na caixa de dialogo
+	
+	@CT0003 @DataJson @Chrome @Alto @Negativo 
+	Cenário: Realizar o cadastro de cliente para pessoa física sem parametrização (Apresentar caixa de dialogo) omitindo o preenchimento do campo CPF e preenchendo demais campos com dados válidos.
+		Dado que acesso a pagina inicial do Cadastro Único
+		Quando preencher o cadastro de cliente para pessoa física com os dados e enviar o formulário
+		Então valido a mensagem CPF é obrigatório! na caixa de dialogo
+	
+	@CT0004 @DataJson @Chrome @Alto @Negativo
+	Cenário: Realizar o cadastro de cliente para pessoa física sem parametrização (Apresentar caixa de dialogo) preenchendo com um CPF inválido e preenchendo demais campos com dados válidos.
+		Dado que acesso a pagina inicial do Cadastro Único
+		Quando preencher o cadastro de cliente para pessoa física com os dados e enviar o formulário
+		Então valido a mensagem CPF inválido! na caixa de dialogo
+	
+	@CT0005 @DataJson @Chrome @Alto @Negativo 
+	Cenário: Realizar o cadastro de cliente para pessoa física sem parametrização (Apresentar caixa de dialogo) omitindo o preenchimento do campo Telefone e preenchendo demais campos com dados válidos.
+		Dado que acesso a pagina inicial do Cadastro Único
+		Quando preencher o cadastro de cliente para pessoa física com os dados e enviar o formulário
+		Então valido a mensagem É obrigatório pelo menos uma forma de contato! na caixa de dialogo
+	
+	@CT0006 @DataJson @Chrome @Alto @Negativo 
+	Cenário: Realizar o cadastro de cliente para pessoa física sem parametrização (Apresentar caixa de dialogo) omitindo o preenchimento do campo Celular e preenchendo demais campos com dados válidos.
+		Dado que acesso a pagina inicial do Cadastro Único
+		Quando preencher o cadastro de cliente para pessoa física com os dados e enviar o formulário
+		Então valido a mensagem É obrigatório pelo menos uma forma de contato! na caixa de dialogo
+	
+	@CT0007 @DataJson @Chrome @Alto @Negativo 
+	Cenário: Realizar o cadastro de cliente para pessoa física sem parametrização (Apresentar caixa de dialogo) omitindo o preenchimento do campo e-mail e preenchendo demais campos com dados válidos.
+		Dado que acesso a pagina inicial do Cadastro Único
+		Quando preencher o cadastro de cliente para pessoa física com os dados e enviar o formulário
+		Então valido a mensagem É obrigatório pelo menos uma forma de contato! na caixa de dialogo
+		
+	@CT0008 @DataJson @Chrome @Alto @Negativo 
+	Cenário: Realizar o cadastro de cliente para pessoa física sem parametrização (Apresentar caixa de dialogo) omitindo o preenchimento do campo Telefone, Celular e e-Mail e preenchendo demais campos com dados válidos.
+		Dado que acesso a pagina inicial do Cadastro Único
+		Quando preencher o cadastro de cliente para pessoa física com os dados e enviar o formulário
+		Então valido a mensagem É obrigatório pelo menos uma forma de contato! na caixa de dialogo
+		
+	@CT0009 @DataJson @Chrome @Alto @Negativo 
+	Cenário: Realizar o cadastro de cliente para pessoa física sem parametrização (Apresentar caixa de dialogo) preenchendo com um Formato de Telefone inválido e preenchendo demais campos com dados válidos.
+		Dado que acesso a pagina inicial do Cadastro Único
+		Quando preencher o cadastro de cliente para pessoa física com os dados e enviar o formulário
+		Então valido a mensagem Formato de telefone é inválido! na caixa de dialogo
+		
+	@CT0010 @DataJson @Chrome @Alto @Negativo 
+	Cenário: Realizar o cadastro de cliente para pessoa física sem parametrização (Apresentar caixa de dialogo) preenchendo com um Formato de Celular inválido e preenchendo demais campos com dados válidos.
+		Dado que acesso a pagina inicial do Cadastro Único
+		Quando preencher o cadastro de cliente para pessoa física com os dados e enviar o formulário
+		Então valido a mensagem Formato de celular é inválido! na caixa de dialogo
+		
+	@CT0011 @DataJson @Chrome @Alto @Negativo 
+	Cenário: Realizar o cadastro de cliente para pessoa física sem parametrização (Apresentar caixa de dialogo) preenchendo com um Formato de e-mail inválido e preenchendo demais campos com dados válidos.
+		Dado que acesso a pagina inicial do Cadastro Único
+		Quando preencher o cadastro de cliente para pessoa física com os dados e enviar o formulário
+		Então valido a mensagem Formato de e-mail é inválido! na caixa de dialogo
+	
+	@CT0012 @DataJson @Chrome @Alto @Negativo 
+	Cenário: Realizar o cadastro de cliente para pessoa física sem parametrização (Apresentar caixa de dialogo) omitindo o preenchimento de todos os campos.
+		Dado que acesso a pagina inicial do Cadastro Único
+		Quando preencher o cadastro de cliente para pessoa física com os dados e enviar o formulário
+		Então valido a mensagem É obrigatório pelo menos uma forma de contato! na caixa de dialogo
 	
 #CTA001 - Realizar o cadastro de cliente para pessoa física sem parametrização (Apresentar caixa de dialogo) preenchendo todos os campos com dados válidos.
 #CTA002 - Realizar o cadastro de cliente para pessoa física sem parametrização (Apresentar caixa de dialogo) omitindo o preenchimento do campo Nome e preenchendo demais campos com dados válidos.

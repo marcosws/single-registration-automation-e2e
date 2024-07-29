@@ -1,6 +1,7 @@
-<!-- Prototipo Cadastro de Cliente -- -->
-<!-- Autor: Marcos Willian de Souza - -->
-<!-- Data: 20/04/2019 --------------- -->
+<!-- Prototipo Cadastro de Cliente ------------------------------------------- -->
+<!-- Autor ...........................: Marcos Willian de Souza -------------- -->
+<!-- Data de Criação .................: 20/04/2019 --------------------------- -->
+<!-- Data Ultima Atualização .........: 28/07/2024 --------------------------- -->
 <DOCTYPE html>
 <html>
 	<head>
@@ -92,14 +93,11 @@
 			.checkbox-aut{
 				margin-left: 20px;
 			}
-			
 			.caixa-texto{
 				border: 1px solid green;
 				border-radius: 6px;
 				height: 26px;
 			}
-			
-			
 			.label-status{
 				display: inline;
 				color: red;
@@ -145,15 +143,18 @@
 			#nome,
 			#nome-fantasia,
 			#razao-social{
+				padding-left: 8px;
 				width: 350px;
 			}
 			#cpf,
 			#cnpj,
 			#telefone,
-			#celular,{
+			#celular{
+				padding-left: 8px;
 				width: 180px;
 			}
 			#email{
+				padding-left: 8px;
 				width: 200px;
 			}
 			#form-cadastro{
@@ -312,18 +313,25 @@
 			}
 			function validaForm(){
 			
+				/* (RadioButton) Mensagem de Inconsistência: Apresentar caixa de dialogo. */
+				var mensagemInfo = document.getElementById('mensagem-info');
+				/* (RadioButton) Mensagem de Inconsistência: Apresentar label informativa. */
+				var labelInfo = document.getElementById('label-info')
+			
+				/* (CheckBox) Mensagens de Confirmação: Apresentar mensagem de confirmação de Cadastro. */
 				var mensagemCadastro = document.getElementById('mensagem-cadastro');
+
 				var valida = true;
 				var confirma = true;
-				
+
 				if(mensagemCadastro.checked){
 					confirma = confirm("Deseja cadastrar as informações");
 					if(!confirma) 
-						valida = false;
+						return false;
 				}
-				
-				if(confirma){
 			
+				if(confirma){
+				
 					var nome  = document.getElementById('nome');
 					var cpf = document.getElementById('cpf');
 					var statusNome = document.getElementById('status-nome');
@@ -345,9 +353,7 @@
 					
 					var cadastroPf = document.getElementById('cadastro-pf');
 					var cadastroPj = document.getElementById('cadastro-pj');
-					var mensagemInfo = document.getElementById('mensagem-info');
-					var labelInfo = document.getElementById('label-info');   
-					
+ 
 					var nomeObrigatorio = 'Nome é obrigatório!';
 					var cpfObrigatorio = 'CPF é obrigatório!';
 					var cpfInvalido = 'CPF Inválido!';
@@ -361,7 +367,7 @@
 					var contatoObrigatorio = 'É obrigatório pelo menos uma forma de contato! (Telefone, Celular ou E-mail)';
 					
 					var msg = "Pendências no cadastro: ";
-				
+					
 					limpaStatus();
 					
 					if(cadastroPf.checked){
@@ -426,50 +432,62 @@
 						}
 					
 					}
-					if(((telefone.value === "") && (celular.value === "")) && (email.value === "")){
-						if(mensagemInfo.checked)
+					if(mensagemInfo.checked){
+						let verificaCampoVazio = false;
+						if(telefone.value == "") verificaCampoVazio = true;
+						if(celular.value == "") verificaCampoVazio = true;
+						if(email.value == "") verificaCampoVazio = true;
+						if(verificaCampoVazio){ 
 							msg += "\n - " + contatoObrigatorio;
-						if(labelInfo.checked){
+							valida = false;
+						}
+					}
+					if(labelInfo.checked){
+						if(telefone.value == ""){ 
 							statusTelefone.innerHTML = contatoObrigatorio;
+							valida = false;
+						}
+						if(celular.value == ""){ 
 							statusCelular.innerHTML = contatoObrigatorio;
+							valida = false;
+						}
+						if(email.value == ""){ 
 							statusEmail.innerHTML = contatoObrigatorio;
+							valida = false;
 						}
-						valida = false;
 					}
-					else{
-						if(telefone.value !== ""){
-							if(!validaTelefone(telefone.value)){
-								if(mensagemInfo.checked)
-									msg += "\n - " + telefoneInvalido;
-								if(labelInfo.checked)
-									statusTelefone.innerHTML = telefoneInvalido;
-								valida = false;
-							}
+					if(telefone.value != ""){
+						if(!validaTelefone(telefone.value)){
+							if(mensagemInfo.checked)
+								msg += "\n - " + telefoneInvalido;
+							if(labelInfo.checked)
+								statusTelefone.innerHTML = telefoneInvalido;
+							valida = false;
 						}
-						if(celular.value !== ""){
-							if(!validaCelular(celular.value)){
-								if(mensagemInfo.checked)
-									msg += "\n - " + celularInvalido;
-								if(labelInfo.checked)
-									statusCelular.innerHTML = celularInvalido;
-								valida = false;
-							}
+					}
+					if(celular.value != ""){
+						if(!validaCelular(celular.value)){
+							if(mensagemInfo.checked)
+								msg += "\n - " + celularInvalido;
+							if(labelInfo.checked)
+								statusCelular.innerHTML = celularInvalido;
+							valida = false;
 						}
-						if(email.value !== ""){
-							if(!validaEmail(email.value)){
-								if(mensagemInfo.checked)
+					}
+					if(email.value != ""){
+						if(!validaEmail(email.value)){
+							if(mensagemInfo.checked)
 									msg += "\n - " + emailInvalido;
-								if(labelInfo.checked)
+							if(labelInfo.checked)
 									statusEmail.innerHTML = emailInvalido;
-								valida = false;
-							}
+							valida = false;
 						}
 					}
+					
 					if(mensagemInfo.checked){
 						if(!valida)
 							alert(msg);
 					}
-				
 					if(valida){
 						var formularioCadastro = document.getElementById('form-cadastro');
 						var formularioConsulta = document.getElementById('form-consulta');
@@ -498,6 +516,7 @@
 						document.getElementById('label-autorizacao').innerHTML = 'Cliente autoriza envio de informações por E-mail: ' + resultado;
 						valida = false;
 					}
+					
 				}
 				return valida;
 			}
@@ -753,7 +772,7 @@
 				</div>
 				<div id="frame1" class="frame">
 					<h2>Cadastro de Cliente</h2>
-					<form id="form-cadastro" class="formulario" method="post" action="prototipo_cadastro.html" onSubmit="return validaForm()">
+					<form id="form-cadastro" class="formulario" method="post" action="prototipo-cadastro-unico-v2.html" onSubmit="return validaForm()">
 						<fieldset class="radiogroup" id="rg-tipo-cadastro">
 							<legend>Tipo de cadastro:</legend> 
 							<label class="container-radio-button">Pessoa Física
@@ -849,7 +868,7 @@
 			</div>
 			<div id="footer">
 				<br />
-				<small>Prototipo Cadastro - 2019 - 2020</small><br />
+				<small>Prototipo Cadastro - 2019 - 2024</small><br />
 				<small>Desenvolvido por Marcos Willian de Souza | E-mail: marcosws@ymail.com</small><br />
 			</div>
 		</div>

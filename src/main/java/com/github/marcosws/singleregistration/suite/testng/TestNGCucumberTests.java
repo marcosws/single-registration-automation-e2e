@@ -10,6 +10,7 @@ import io.cucumber.testng.PickleWrapper;
 import io.cucumber.testng.TestNGCucumberRunner;
 
 import org.testng.IRetryAnalyzer;
+import org.testng.ITestContext;
 import org.testng.ITestResult;
 
 public class TestNGCucumberTests implements IRetryAnalyzer {
@@ -36,18 +37,21 @@ public class TestNGCucumberTests implements IRetryAnalyzer {
 	}
 
 	@BeforeClass(alwaysRun = true)
-	public void setUpClass() throws Exception {
+	public void setUpClass(ITestContext context) throws Exception {
 		System.out.println("Before Scenario ****");
+	    context.getCurrentXmlTest().getSuite().setDataProviderThreadCount(4); // set max number of Threads
+	    context.getCurrentXmlTest().getSuite().setPreserveOrder(true);
 		testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
 	}
 	
-    @DataProvider(parallel = false) // true - para rodar os testes em thread
+    @DataProvider(parallel = true)
     public Object[][] scenarios() {
     	return testNGCucumberRunner.provideScenarios();
     }
 	
-    @Test(groups = "cucumber", description = "Runs Cucumber Scenarios", dataProvider = "scenarios",retryAnalyzer = TestNGCucumberTests.class)
+    @Test(groups = "cucumber", description = "Runs Cucumber Scenarios", dataProvider = "scenarios", retryAnalyzer = TestNGCucumberTests.class)
     public void scenario(PickleWrapper pickleEvent, FeatureWrapper cucumberFeature) {
+    	
     	testNGCucumberRunner.runScenario(pickleEvent.getPickle());
     }
 

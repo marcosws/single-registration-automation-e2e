@@ -21,7 +21,32 @@ import org.json.simple.JSONValue;
 
 public class Utils {
 	
-	public static void dataJsonToObject(Object object, String json){
+	public static void setEmptyIfStringFieldIsNull(Object object) {
+		List<Field> allFields = Arrays.asList(object.getClass().getDeclaredFields());
+        for(Field f : allFields){
+        	f.setAccessible(true);
+        	try{
+        		if(f.getType().isInstance(new String())){
+        		//if(f.getType().getSimpleName().equals("String")){
+        			if(f.get(object) == null){
+        				f.setAccessible(true);
+        				f.set(object, "");
+        			}
+        		}
+        		
+        	}
+        	catch(Exception e){
+        		e.printStackTrace();
+        	}
+        }
+	}
+	public static void dataJsonToObject(Object object, String json) throws Exception {
+		
+		if(json == null || json == "") 
+			throw new Exception("parâmentro json não pode ser nulo ou vazio.");
+		
+		if(object == null) 
+			throw new NullPointerException("parâmentro object não pode ser nulo.");
 		
 		JSONObject jsonObject = (JSONObject) JSONValue.parse(json);
         List<Field> allFields = Arrays.asList(object.getClass().getDeclaredFields());
@@ -97,9 +122,30 @@ public class Utils {
 	}
 	
 	public static Boolean stringToBoolean(String text) {
-		return ((text.equalsIgnoreCase("S") || text.equalsIgnoreCase("SIM")) 
-				|| (text.equalsIgnoreCase("TRUE") || text.equalsIgnoreCase("Y"))) 
-				|| (text.equalsIgnoreCase("YES"));
+		return Arrays.asList("S","SIM","TRUE","Y","YES").contains(text.toUpperCase());
+	} 
+	
+	public static String removeAccents(String text) {
+		String lettersWithAccents = "ÁÃÂÀÄÅÉÊËÈÏÍÌÎÓÕÔÖÒÚÙÛÜÇÑÝŸŠáãâàäåéêëèïíìîóõôöòúùûüçñýÿš";
+		String lettersWithoutAccents = "AAAAAAEEEEIIIIOOOOOUUUUCNYYSaaaaaaeeeeiiiiooooouuuucnyys";
+		for(int i = 0; i < lettersWithAccents.length(); i++) 
+			text = text.replace(lettersWithAccents.charAt(i), lettersWithoutAccents.charAt(i));
+		return text;
+	}
+	
+	public static String normalize(String text) {
+		return removeAccents(text).replaceAll("[^A-Za-z0-9]","").toUpperCase();
+	}
+	
+	public static String removeMask(String field) {
+		
+		field = field.replace(".", "");
+		field = field.replace("-", "");
+		field = field.replace("/", "");
+		field = field.replace("(", "");
+		field = field.replace(")", "");
+		return field;
+		
 	}
 	
 }

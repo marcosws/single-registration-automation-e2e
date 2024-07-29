@@ -1,9 +1,7 @@
-package com.github.marcosws.singleregistration.model;
+package com.github.marcosws.singleregistration.data;
 
 
 public class SingleRegistration {
-	
-	private static SingleRegistration instance;
 	
 	private String registrationType;
 	private String name;
@@ -18,13 +16,6 @@ public class SingleRegistration {
 	private String inconsistencyMessage;
 	private String displaysRegistrationConfirmationMessage;
 	private String displaysConfirmationMessageBeforeClearingFields;
-	
-	public static synchronized SingleRegistration getInstance() {
-		if(instance == null) {
-			instance = new SingleRegistration();
-		}
-		return instance;
-	}
 	
 	public String getRegistrationType() {
 		return registrationType;
@@ -91,10 +82,6 @@ public class SingleRegistration {
 
 	public void setDisplaysConfirmationMessageBeforeClearingFields(String displaysConfirmationMessageBeforeClearingFields) {
 		this.displaysConfirmationMessageBeforeClearingFields = displaysConfirmationMessageBeforeClearingFields;
-	}
-
-	public static void setInstance(SingleRegistration instance) {
-		SingleRegistration.instance = instance;
 	}
 
 	public String getFantasyName() {

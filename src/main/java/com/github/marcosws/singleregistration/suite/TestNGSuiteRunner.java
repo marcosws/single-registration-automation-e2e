@@ -15,6 +15,6 @@ import io.cucumber.testng.CucumberOptions;
 				"com.github.marcosws.singleregistration.steps",
 				"com.github.marcosws.singleregistration.hooks" }, 
 		tags = "@Global")
-public class TestSuite extends TestNGCucumberTests {
+public class TestNGSuiteRunner extends TestNGCucumberTests {
 
 }

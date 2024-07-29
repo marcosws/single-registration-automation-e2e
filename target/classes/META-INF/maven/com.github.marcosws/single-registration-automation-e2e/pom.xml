@@ -12,6 +12,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.target>11</maven.compiler.target>
+    <maven.compiler.source>11</maven.compiler.source>
   </properties>
 
   <dependencies>
@@ -31,7 +33,7 @@
 	    <version>7.9.0</version>
 	</dependency>
 	<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
-	<dependency><!-- resolve SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder"-->
+	<dependency><!-- resolve esta falha no TestNG: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder" -->
 	    <groupId>org.slf4j</groupId>
 	    <artifactId>slf4j-api</artifactId>
 	    <version>1.6.6</version>
@@ -86,8 +88,24 @@
 	</dependency>
 	
   </dependencies>
-  
   <build>
+       <plugins>
+           <plugin> <!-- Executar o JUnit 5 durante o Maven Install -->
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-surefire-plugin</artifactId>
+               <version>3.3.1</version>
+               <dependencies>
+                   <dependency>
+                       <groupId>org.junit.jupiter</groupId>
+                       <artifactId>junit-jupiter-engine</artifactId>
+                       <version>5.10.3</version>
+                   </dependency>
+               </dependencies>
+           </plugin>
+       </plugins>
+   </build>
+
+<!-- <build>
 	<plugins>
 		<plugin>
 		    <groupId>org.apache.maven.plugins</groupId>
@@ -100,14 +118,14 @@
 			            <value>2</value>
 			        </property>
 			    </properties>
-			</configuration>
+			</configuration> -->
 			<!-- para multiplas classes de runners -->
 			<!--<configuration>
 			    <parallel>classes</parallel>
 			    <threadCount>4</threadCount>
 			</configuration> -->
-		</plugin>
+		<!--</plugin>
 	</plugins>
-  </build>
+  </build> -->
   
 </project>
