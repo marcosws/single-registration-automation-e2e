@@ -1,6 +1,6 @@
 package com.github.marcosws.singleregistration.steps;
 
-import com.github.marcosws.singleregistration.rules.VirtualKeyRules;
+import com.github.marcosws.singleregistration.method.VirtualKeyMethod;
 
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.Então;
@@ -8,7 +8,7 @@ import io.cucumber.java.pt.Quando;
 
 public class VirtualKeySteps {
 	
-	VirtualKeyRules virtualKeyRules = new VirtualKeyRules();
+	VirtualKeyMethod virtualKeyRules = new VirtualKeyMethod();
 	
 	@Dado("que que acesso a pagina inicial do Teclado Virtual.")
 	public void queQueAcessoAPaginaInicialDoTecladoVirtual() {

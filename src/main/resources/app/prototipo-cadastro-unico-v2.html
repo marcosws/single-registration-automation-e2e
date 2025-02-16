@@ -489,10 +489,10 @@
 							alert(msg);
 					}
 					if(valida){
-						var formularioCadastro = document.getElementById('form-cadastro');
-						var formularioConsulta = document.getElementById('form-consulta');
-						formularioCadastro.style.display = 'none';
-						formularioConsulta.style.display = 'block';
+						var formulárioCadastro = document.getElementById('form-cadastro');
+						var formulárioConsulta = document.getElementById('form-consulta');
+						formulárioCadastro.style.display = 'none';
+						formulárioConsulta.style.display = 'block';
 						if(cadastroPf.checked){
 							document.getElementById('label-nome').innerHTML = "Nome: " + nome.value;
 							document.getElementById('label-cpf').innerHTML = "CPF: " + cpf.value;
@@ -520,11 +520,11 @@
 				}
 				return valida;
 			}
-			function retornaFormulario(){
-				var formularioCadastro = document.getElementById('form-cadastro');
-				var formularioConsulta = document.getElementById('form-consulta');
-				formularioCadastro.style.display = 'block';
-				formularioConsulta.style.display = 'none';
+			function retornaformulário(){
+				var formulárioCadastro = document.getElementById('form-cadastro');
+				var formulárioConsulta = document.getElementById('form-consulta');
+				formulárioCadastro.style.display = 'block';
+				formulárioConsulta.style.display = 'none';
 				document.getElementById('label-nome').innerHTML = '';
 				document.getElementById('label-cpf').innerHTML = '';
 				document.getElementById('label-nome-fantasia').innerHTML = '';
@@ -772,7 +772,7 @@
 				</div>
 				<div id="frame1" class="frame">
 					<h2>Cadastro de Cliente</h2>
-					<form id="form-cadastro" class="formulario" method="post" action="prototipo-cadastro-unico-v2.html" onSubmit="return validaForm()">
+					<form id="form-cadastro" class="formulário" method="post" action="prototipo-cadastro-unico-v2.html" onSubmit="return validaForm()">
 						<fieldset class="radiogroup" id="rg-tipo-cadastro">
 							<legend>Tipo de cadastro:</legend> 
 							<label class="container-radio-button">Pessoa Física
@@ -821,7 +821,7 @@
 						<input type="submit" value="Cadastrar" id="cadastrar" class="btform" />
 						<input type="button" value="Limpar" id="limpar" class="btform" onclick="limpaCampos();"/>
 					</form>
-					<form id="form-consulta" class="formulario" >
+					<form id="form-consulta" class="formulário" >
 						<label id="label-nome" class="label-texto"></label>
 						<label id="label-cpf" class="label-texto"></label>
 						<label id="label-nome-fantasia" class="label-texto"></label>
@@ -833,12 +833,12 @@
 						<label id="label-autorizacao" class="label-texto"></label>
 						<br />
 						<br />
-						<input type="button" value="Voltar" id="voltar" class="btform" onclick="retornaFormulario();"/>
+						<input type="button" value="Voltar" id="voltar" class="btform" onclick="retornaformulário();"/>
 					</form>
 				</div>
 				<div id="frame2" class="frame">
 					<h2>Parâmetros do Cadastro</h2>
-					<form id="form-parametros" class="formulario"></form>
+					<form id="form-parametros" class="formulário"></form>
 						<fieldset class="radiogroup" id="rg-mensagem-inconsistencia">
 							<legend>Mensagem de Inconsistência:</legend> 
 							<label class="container-radio-button">Apresentar caixa de dialogo.

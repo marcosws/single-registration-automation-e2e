@@ -14,7 +14,7 @@ import io.cucumber.testng.CucumberOptions;
 		glue = { 
 				"com.github.marcosws.singleregistration.steps",
 				"com.github.marcosws.singleregistration.hooks" }, 
-		tags = "@Global")
+		tags = "@CT0030")
 public class TestNGSuiteRunner extends TestNGCucumberTests {
 
 }

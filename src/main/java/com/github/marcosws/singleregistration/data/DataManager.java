@@ -12,13 +12,15 @@ public class DataManager {
 		
 		String path = "";
 		String json = "";
-		try {
-			path = Utils.getFullPathResource("/data/" + idCaseTest.replace("@", "") + ".json");
-			json = Utils.readFile(path);
-		}
-		catch(NullPointerException e) {
-			new AssertionError("Erro ao selecionar o json(Massa) verifique as Tags na Feature se está no Padrão ou se o nome da Tags no inice corresponde ao nome do Arquivo.\n" + e.getMessage());
-		}
+		//try {
+			path = Utils.getFullPathResource("/data");
+			System.out.println("path " + path);
+			json = Utils.readFile(path + "/" + idCaseTest.replace("@", "") + ".json");
+			System.out.println("json" + json);
+		//}
+		//catch(NullPointerException e) {
+		//	new AssertionError("Erro ao selecionar o json(Massa) verifique as Tags na Feature se está no Padrão ou se o nome da Tags no inice corresponde ao nome do Arquivo.\n" + e.getMessage());
+		//}
 		
 		if(context.replace("@", "").equals("CadastroUnico")) {
 			try {
@@ -27,7 +29,7 @@ public class DataManager {
 			catch (Exception e) {
 				e.printStackTrace();
 			}
-			SingleRegistrationSingleton.setInstance(singleRegistration);
+			SingleRegistration.setInstance(singleRegistration);
 		} 
 		else if(context.replace("@", "").equals("TecladoVirtual")) {
 		

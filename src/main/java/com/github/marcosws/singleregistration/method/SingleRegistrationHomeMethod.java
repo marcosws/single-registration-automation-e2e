@@ -1,35 +1,34 @@
-package com.github.marcosws.singleregistration.rules;
+package com.github.marcosws.singleregistration.method;
 
 import org.junit.Assert;
 
-import com.github.marcosws.singleregistration.core.BaseRules;
+import com.github.marcosws.singleregistration.core.BaseMethod;
 import com.github.marcosws.singleregistration.core.Utils;
 import com.github.marcosws.singleregistration.data.SingleRegistration;
-import com.github.marcosws.singleregistration.data.SingleRegistrationSingleton;
 import com.github.marcosws.singleregistration.data.enums.RegistrationType;
 import com.github.marcosws.singleregistration.page.SingleRegistrationHomePage;
 
-public class SingleRegistrationHomeRules extends BaseRules {
+public class SingleRegistrationHomeMethod extends BaseMethod {
 	
 	SingleRegistrationHomePage singleRegistrationHomePage = new SingleRegistrationHomePage();
-	SingleRegistration singleRegistration = SingleRegistrationSingleton.getInstance();
+	SingleRegistration singleRegistration = SingleRegistration.getInstance();
  	
-	public SingleRegistrationHomeRules waitTitleSingleRegistration() {
+	public SingleRegistrationHomeMethod waitTitleSingleRegistration() {
 		singleRegistrationHomePage.waitTitleSingleRegistration();
 		return this;
 	}
 	
-	public SingleRegistrationHomeRules clickRegistrationTab() {
+	public SingleRegistrationHomeMethod clickRegistrationTab() {
 		singleRegistrationHomePage.clickRegistrationTab();
 		return this;
 	}
 	
-	public SingleRegistrationHomeRules waitTitleCustomerRegistration() {
+	public SingleRegistrationHomeMethod waitTitleCustomerRegistration() {
 		singleRegistrationHomePage.waitCustomerRegistration();
 		return this;
 	}
 	
-	public SingleRegistrationHomeRules selectRegistrationType() {
+	public SingleRegistrationHomeMethod selectRegistrationType() {
 		
 		if(singleRegistration.getRegistrationType().equals(RegistrationType.PHYSICAL_PERSON.toString())) {
 			singleRegistrationHomePage.selectRegistrationTypePhysicalPerson();
@@ -41,61 +40,61 @@ public class SingleRegistrationHomeRules extends BaseRules {
 		
 	}
 	
-	public SingleRegistrationHomeRules editName() {
+	public SingleRegistrationHomeMethod editName() {
 		singleRegistrationHomePage.editName(singleRegistration.getName());
 		return this;
 	}
 	
-	public SingleRegistrationHomeRules editCpf() {
+	public SingleRegistrationHomeMethod editCpf() {
 		singleRegistrationHomePage.editCpf(singleRegistration.getCpf());
 		return this;
 	}
 	
-	public SingleRegistrationHomeRules editFantasyName() {
+	public SingleRegistrationHomeMethod editFantasyName() {
 		singleRegistrationHomePage.editFantasyName(singleRegistration.getFantasyName());
 		return this;
 	}
 	
-	public SingleRegistrationHomeRules editCorporateName() {
+	public SingleRegistrationHomeMethod editCorporateName() {
 		singleRegistrationHomePage.editCorporateName(singleRegistration.getCorporateName());
 		return this;
 	}
 	
-	public SingleRegistrationHomeRules editCnpj() {
+	public SingleRegistrationHomeMethod editCnpj() {
 		singleRegistrationHomePage.editCnpj(singleRegistration.getCnpj());
 		return this;
 	}
 
-	public SingleRegistrationHomeRules editTelephone() {
+	public SingleRegistrationHomeMethod editTelephone() {
 		singleRegistrationHomePage.editTelephone(singleRegistration.getTelephone());
 		return this;
 	}
 	
-	public SingleRegistrationHomeRules editCellPhone() {
+	public SingleRegistrationHomeMethod editCellPhone() {
 		singleRegistrationHomePage.editCellPhone(singleRegistration.getCellPhone());
 		return this;
 	}
 	
-	public SingleRegistrationHomeRules editEmail() {
+	public SingleRegistrationHomeMethod editEmail() {
 		singleRegistrationHomePage.editEmail(singleRegistration.getEmail());
 		return this;
 	}
 	
-	public SingleRegistrationHomeRules selectCustomerAuthorizesSendingOfInformationByEmail() {
+	public SingleRegistrationHomeMethod selectCustomerAuthorizesSendingOfInformationByEmail() {
 		singleRegistrationHomePage.selectCustomerAuthorizesSendingOfInformationByEmail(Utils.stringToBoolean(singleRegistration.getCustomerAuthorizesSendingOfInformationByEmail()));
 		return this;
 	}
 	
-	public SingleRegistrationHomeRules clickRegister() {
+	public SingleRegistrationHomeMethod clickRegister() {
 		singleRegistrationHomePage.clickRegister();
 		return this;
 	}
-	public SingleRegistrationHomeRules clickClean() {
+	public SingleRegistrationHomeMethod clickClean() {
 		singleRegistrationHomePage.clickClean();
 		return this;
 	}
 	
-	public SingleRegistrationHomeRules validateName() {
+	public SingleRegistrationHomeMethod validateName() {
 		String expected = singleRegistrationHomePage.getTextName();
 		String actual = singleRegistration.getName();
 		System.out.println(" - :[" + expected + "]:[" + actual + "]");
@@ -103,7 +102,7 @@ public class SingleRegistrationHomeRules extends BaseRules {
 		return this;
 	}
 	
-	public SingleRegistrationHomeRules validateCpf() {
+	public SingleRegistrationHomeMethod validateCpf() {
 		String expected = Utils.removeMask(singleRegistrationHomePage.getTextCpf());
 		String actual = singleRegistration.getCpf();
 		System.out.println(" - :[" + expected + "]:[" + actual + "]");
@@ -111,7 +110,7 @@ public class SingleRegistrationHomeRules extends BaseRules {
 		return this;
 	}
 	
-	public SingleRegistrationHomeRules validateFantasyName() {
+	public SingleRegistrationHomeMethod validateFantasyName() {
 		String expected = singleRegistrationHomePage.getTextFantasyName();
 		String actual = singleRegistration.getFantasyName();
 		System.out.println(" - :[" + expected + "]:[" + actual + "]");
@@ -119,7 +118,7 @@ public class SingleRegistrationHomeRules extends BaseRules {
 		return this;
 	}
 	
-	public SingleRegistrationHomeRules validateCorporateName() {
+	public SingleRegistrationHomeMethod validateCorporateName() {
 		String expected = singleRegistrationHomePage.getTextCorporateName();
 		String actual = singleRegistration.getCorporateName();
 		System.out.println(" - :[" + expected + "]:[" + actual + "]");
@@ -127,7 +126,7 @@ public class SingleRegistrationHomeRules extends BaseRules {
 		return this;
 	}
 	
-	public SingleRegistrationHomeRules validateCnpj() {
+	public SingleRegistrationHomeMethod validateCnpj() {
 		String expected = Utils.removeMask(singleRegistrationHomePage.getTextCnpj());
 		String actual = singleRegistration.getCnpj();
 		System.out.println(" - :[" + expected + "]:[" + actual + "]");
@@ -135,7 +134,7 @@ public class SingleRegistrationHomeRules extends BaseRules {
 		return this;
 	}
 	
-	public SingleRegistrationHomeRules validateTelephone() {
+	public SingleRegistrationHomeMethod validateTelephone() {
 		String expected = Utils.removeMask(singleRegistrationHomePage.getTextTelephone());
 		String actual = singleRegistration.getTelephone();
 		System.out.println(" - :[" + expected + "]:[" + actual + "]");
@@ -143,7 +142,7 @@ public class SingleRegistrationHomeRules extends BaseRules {
 		return this;
 	}
 	
-	public SingleRegistrationHomeRules validateCellPhone() {
+	public SingleRegistrationHomeMethod validateCellPhone() {
 		String expected = Utils.removeMask(singleRegistrationHomePage.getTextCellPhone());
 		String actual = singleRegistration.getCellPhone();
 		System.out.println(" - :[" + expected + "]:[" + actual + "]");
@@ -151,7 +150,7 @@ public class SingleRegistrationHomeRules extends BaseRules {
 		return this;
 	}
 	
-	public SingleRegistrationHomeRules validateEmail() {
+	public SingleRegistrationHomeMethod validateEmail() {
 		String expected = singleRegistrationHomePage.getTextEmail();
 		String actual = singleRegistration.getEmail();
 		System.out.println(" - :[" + expected + "]:[" + actual + "]");
@@ -159,7 +158,7 @@ public class SingleRegistrationHomeRules extends BaseRules {
 		return this;
 	}
 	
-	public SingleRegistrationHomeRules validateCustomerAuthorizesSendingOfInformationByEmail() {
+	public SingleRegistrationHomeMethod validateCustomerAuthorizesSendingOfInformationByEmail() {
 		String expected = singleRegistrationHomePage.getTextCustomerAuthorizesSendingOfInformationByEmail();
 		String actual = singleRegistration.getCustomerAuthorizesSendingOfInformationByEmail();
 		System.out.println(" - :[" + expected + "]:[" + actual + "]");
@@ -167,77 +166,77 @@ public class SingleRegistrationHomeRules extends BaseRules {
 		return this;
 	}
 	
-	public SingleRegistrationHomeRules validateMessageBoxNameRequired() {
+	public SingleRegistrationHomeMethod validateMessageBoxNameRequired() {
 		String expected = "Pendências no cadastro:  - Nome é obrigatório!";
 		String actual = singleRegistrationHomePage.getTextMessageBox().replace("\n", "");
 		System.out.println(" - :[" + expected + "]:[" + actual + "]");
 		Assert.assertEquals(expected, actual);
 		return this;
 	}
-	public SingleRegistrationHomeRules validateMessageBoxCpfRequired() {
+	public SingleRegistrationHomeMethod validateMessageBoxCpfRequired() {
 		String expected = "Pendências no cadastro:  - CPF é obrigatório!";
 		String actual = singleRegistrationHomePage.getTextMessageBox().replace("\n", "");
 		System.out.println(" - :[" + expected + "]:[" + actual + "]");
 		Assert.assertEquals(expected, actual);
 		return this;
 	}
-	public SingleRegistrationHomeRules validateMessageBoxInvalidCPF() {
+	public SingleRegistrationHomeMethod validateMessageBoxInvalidCPF() {
 		String expected = "Pendências no cadastro:  - CPF Inválido!";
 		String actual = singleRegistrationHomePage.getTextMessageBox().replace("\n", "");
 		System.out.println(" - :[" + expected + "]:[" + actual + "]");
 		Assert.assertEquals(expected, actual);
 		return this;
 	}
-	public SingleRegistrationHomeRules validateMessageBoxFantasyNameIsRequired() {
+	public SingleRegistrationHomeMethod validateMessageBoxFantasyNameIsRequired() {
 		String expected = "Pendências no cadastro:  - Nome Fantasia é obrigatório!";
 		String actual = singleRegistrationHomePage.getTextMessageBox().replace("\n", "");
 		System.out.println(" - :[" + expected + "]:[" + actual + "]");
 		Assert.assertEquals(expected, actual);
 		return this;
 	}
-	public SingleRegistrationHomeRules validateMessageBoxCorporateNameIsRequired() {
+	public SingleRegistrationHomeMethod validateMessageBoxCorporateNameIsRequired() {
 		String expected = "Pendências no cadastro:  - Razão Social é obrigatória!";
 		String actual = singleRegistrationHomePage.getTextMessageBox().replace("\n", "");
 		System.out.println(" - :[" + expected + "]:[" + actual + "]");
 		Assert.assertEquals(expected, actual);
 		return this;
 	}
-	public SingleRegistrationHomeRules validateMessageBoxCNPJIsRequired() {
+	public SingleRegistrationHomeMethod validateMessageBoxCNPJIsRequired() {
 		String expected = "Pendências no cadastro:  - CNPJ é obrigatório!";
 		String actual = singleRegistrationHomePage.getTextMessageBox().replace("\n", "");
 		System.out.println(" - :[" + expected + "]:[" + actual + "]");
 		Assert.assertEquals(expected, actual);
 		return this;
 	}
-	public SingleRegistrationHomeRules validateMessageBoxInvalidCNPJ() {
+	public SingleRegistrationHomeMethod validateMessageBoxInvalidCNPJ() {
 		String expected = "Pendências no cadastro:  - CNPJ inválido!";
 		String actual = singleRegistrationHomePage.getTextMessageBox().replace("\n", "");
 		System.out.println(" - :[" + expected + "]:[" + actual + "]");
 		Assert.assertEquals(expected, actual);
 		return this;
 	}
-	public SingleRegistrationHomeRules validateMessageBoxPhoneFormatIsInvalid() {
+	public SingleRegistrationHomeMethod validateMessageBoxPhoneFormatIsInvalid() {
 		String expected = "Pendências no cadastro:  - Formato de telefone é inválido!";
 		String actual = singleRegistrationHomePage.getTextMessageBox().replace("\n", "");
 		System.out.println(" - :[" + expected + "]:[" + actual + "]");
 		Assert.assertEquals(expected, actual);
 		return this;
 	}
-	public SingleRegistrationHomeRules validateMessageBoxCellPhoneFormatIsInvalid() {
+	public SingleRegistrationHomeMethod validateMessageBoxCellPhoneFormatIsInvalid() {
 		String expected = "Pendências no cadastro:  - Formato de celular é inválido!";
 		String actual = singleRegistrationHomePage.getTextMessageBox().replace("\n", "");
 		System.out.println(" - :[" + expected + "]:[" + actual + "]");
 		Assert.assertEquals(expected, actual);
 		return this;
 	}
-	public SingleRegistrationHomeRules validateMessageBoxEmailFormatIsInvalid() {
+	public SingleRegistrationHomeMethod validateMessageBoxEmailFormatIsInvalid() {
 		String expected = "Pendências no cadastro:  - Formato de e-mail é inválido!";
 		String actual = singleRegistrationHomePage.getTextMessageBox().replace("\n", "");
 		System.out.println(" - :[" + expected + "]:[" + actual + "]");
 		Assert.assertEquals(expected, actual);
 		return this;
 	}
-	public SingleRegistrationHomeRules validateMessageBoxAtLeastOneFormOfContactIsRequired() {
+	public SingleRegistrationHomeMethod validateMessageBoxAtLeastOneFormOfContactIsRequired() {
 		String expected = "Pendências no cadastro:  - É obrigatório pelo menos uma forma de contato! (Telefone, Celular ou E-mail)";
 		String actual = singleRegistrationHomePage.getTextMessageBox().replace("\n", "");
 		System.out.println(" - :[" + expected + "]:[" + actual + "]");

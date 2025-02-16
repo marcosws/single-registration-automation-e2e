@@ -38,6 +38,12 @@ public class BasePage {
 		 JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
 		 javascriptExecutor.executeScript(script, webElement);
 	}
+	
+	public void executeJavaScript(String script) {
+		 JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
+		 javascriptExecutor.executeScript(script);
+	}
+	
 	protected void highLight(WebElement webElement) {
     	
 		String script = "arguments[0].setAttribute('style', arguments[1]);";
@@ -201,7 +207,7 @@ public class BasePage {
 		else if(selector.equals("xpath"))
 			by = By.xpath(value);
 		else if(selector.equals("cssSelector"))
-				by = By.cssSelector(value);
+			by = By.cssSelector(value);
 		else if(selector.equals("linkText"))
 			by = By.linkText(value);
 		else if(selector.equals("name"))
@@ -251,5 +257,45 @@ public class BasePage {
 		}
 		return textDialogBox;
 	}
+	
+	 public void scrollDownToElement(WebElement element) {
+	    	
+	    	int yLocation = element.getLocation().getY();
+	    	int heightScreen = driver.manage().window().getSize().getHeight();
+	    	int heightFinal = Math.abs((heightScreen / 3) - yLocation);
+	    	scrollDown(heightFinal);
+	    	highLight(element);
+	  
+	    }
+	    
+	    public void scrollUpToElement(WebElement element) {
+	    	
+	    	int yLocation = element.getLocation().getY();
+	    	executeJavaScript("window.scrollTo(0," + yLocation + ");");
+	    	scrollUp(yLocation);
+	    	highLight(element);
+	  
+	    }
+	    public void scrollDown() {
+	    	executeJavaScript("window.scrollTo(0, document.documentElement.scrollHeight); ");
+	    }
+	    public void scrollDown(int y) {
+	    	executeJavaScript("window.scrollTo(0, window.scrollY + " + y + ");");
+	    }
+	    public void scrollUp() {
+	    	executeJavaScript("window.scrollTo(0, 0);");
+	    }
+	    public void scrollUp(int y) {
+	    	executeJavaScript("window.scrollTo(0, window.scrollY - " + y + ");");
+	    }
+	    
+	    public boolean waitElementVisibilityOf(WebElement element, int seconds) {
+	    	return new WebDriverWait(driver, Duration.ofSeconds(seconds)).until(ExpectedConditions.visibilityOf(element)) != null;
+	    }
+	    
+	    public boolean waitElementToBeClickable(WebElement element, int seconds) {
+	    	return new WebDriverWait(driver, Duration.ofSeconds(seconds)).until(ExpectedConditions.elementToBeClickable(element)) != null;
+	    }
+	    
 	
 }

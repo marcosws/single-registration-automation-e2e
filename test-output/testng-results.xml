@@ -1,75 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-07-28T21:56:44 GMT-03:00" name="Default suite" finished-at="2024-07-28T21:58:34 GMT-03:00" duration-ms="109762">
+  <suite started-at="2025-02-16T11:54:44 BRT" name="Default suite" finished-at="2025-02-16T11:55:06 BRT" duration-ms="22501">
     <groups>
       <group name="cucumber">
-        <method signature="TestNGCucumberTests.scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.github.marcosws.singleregistration.suite.TestNGSuiteRunner@548a24a]" name="scenario" class="com.github.marcosws.singleregistration.suite.testng.TestNGCucumberTests"/>
+        <method signature="TestNGCucumberTests.scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.github.marcosws.singleregistration.suite.TestNGSuiteRunner@4f18837a]" name="scenario" class="com.github.marcosws.singleregistration.suite.testng.TestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2024-07-28T21:56:44 GMT-03:00" name="Default test" finished-at="2024-07-28T21:58:34 GMT-03:00" duration-ms="109762">
+    <test started-at="2025-02-16T11:54:44 BRT" name="Default test" finished-at="2025-02-16T11:55:06 BRT" duration-ms="22501">
       <class name="com.github.marcosws.singleregistration.suite.TestNGSuiteRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.github.marcosws.singleregistration.suite.TestNGSuiteRunner@548a24a]" started-at="2024-07-28T21:56:44 GMT-03:00" name="setUpClass" finished-at="2024-07-28T21:56:45 GMT-03:00" duration-ms="712" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.github.marcosws.singleregistration.suite.TestNGSuiteRunner@4f18837a]" started-at="2025-02-16T11:54:44 BRT" name="setUpClass" finished-at="2025-02-16T11:54:44 BRT" duration-ms="260" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@60297f36]]>
+                <![CDATA[org.testng.TestRunner@93824eb]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.github.marcosws.singleregistration.suite.TestNGSuiteRunner@548a24a]" started-at="2024-07-28T21:56:45 GMT-03:00" name="scenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-07-28T21:58:34 GMT-03:00" duration-ms="108839" status="PASS">
+        <test-method signature="scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.github.marcosws.singleregistration.suite.TestNGSuiteRunner@4f18837a]" started-at="2025-02-16T11:54:44 BRT" name="scenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-02-16T11:55:06 BRT" duration-ms="22181" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Realizar acesso atraves do Teclado Virtual utilizando a senha válida informada no campo sua senha com o Browser Firefox."]]>
+                <![CDATA["Realizar o cadastro de cliente para pessoa jurídica sem parametrização (Apresentar caixa de dialogo) preenchendo todos os campos com dados válidos."]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Realizar acesso atraves do Teclado Virtual"]]>
+                <![CDATA["realizar o cadastro de cliente no Cadastro Único"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- scenario -->
-        <test-method signature="scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.github.marcosws.singleregistration.suite.TestNGSuiteRunner@548a24a]" started-at="2024-07-28T21:56:45 GMT-03:00" name="scenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-07-28T21:57:38 GMT-03:00" duration-ms="53417" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Realizar acesso atraves do Teclado Virtual utilizando a senha válida informada no campo sua senha com o Browser Chrome."]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Realizar acesso atraves do Teclado Virtual"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- scenario -->
-        <test-method signature="scenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.github.marcosws.singleregistration.suite.TestNGSuiteRunner@548a24a]" started-at="2024-07-28T21:56:45 GMT-03:00" name="scenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-07-28T21:57:48 GMT-03:00" duration-ms="63100" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA["Realizar acesso atraves do Teclado Virtual utilizando a senha válida informada no campo sua senha com o Browser Edge."]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA["Realizar acesso atraves do Teclado Virtual"]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- scenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.github.marcosws.singleregistration.suite.TestNGSuiteRunner@548a24a]" started-at="2024-07-28T21:58:34 GMT-03:00" name="tearDownClass" finished-at="2024-07-28T21:58:34 GMT-03:00" duration-ms="139" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.github.marcosws.singleregistration.suite.TestNGSuiteRunner@4f18837a]" started-at="2025-02-16T11:55:06 BRT" name="tearDownClass" finished-at="2025-02-16T11:55:06 BRT" duration-ms="39" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

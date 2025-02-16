@@ -1,7 +1,23 @@
 package com.github.marcosws.singleregistration.data;
 
+import com.github.marcosws.singleregistration.core.Utils;
 
 public class SingleRegistration {
+	
+	private static ThreadLocal<SingleRegistration> instance = new ThreadLocal<SingleRegistration>();
+	
+	public static synchronized SingleRegistration getInstance() {
+		if(instance.get() == null) {
+			SingleRegistration singleRegistration = new SingleRegistration();
+			Utils.setEmptyIfStringFieldIsNull(instance);
+			instance.set(singleRegistration);
+		}
+		return instance.get();
+	}
+
+	public static void setInstance(SingleRegistration instance) {
+		SingleRegistration.instance.set(instance);
+	}
 	
 	private String registrationType;
 	private String name;

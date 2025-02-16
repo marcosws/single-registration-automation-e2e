@@ -58,10 +58,10 @@ public class Hooks {
 			DriverFactory.setDriver(Browser.CHROME);
 		}
 		logger.info("Abrindo Browser ...");
+		DriverFactory.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(7));
 		DriverFactory.getDriver().manage().window().maximize();
 		if(testNameFeature.equalsIgnoreCase("@CadastroUnico")) DriverFactory.getDriver().get(Context.APP_SINGLE_REGISTRATION);
 		if(testNameFeature.equalsIgnoreCase("@TecladoVirtual")) DriverFactory.getDriver().get(Context.APP_VIRTUAL_KEY);
-		DriverFactory.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(7));
 		logger.info(" ********************************* ");
 	}
 	

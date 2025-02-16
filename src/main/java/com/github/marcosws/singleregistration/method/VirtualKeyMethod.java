@@ -1,23 +1,23 @@
-package com.github.marcosws.singleregistration.rules;
+package com.github.marcosws.singleregistration.method;
 
 import org.junit.Assert;
 
 import com.github.marcosws.singleregistration.page.VirtualKeyPage;
 
-public class VirtualKeyRules {
+public class VirtualKeyMethod {
 	
 	VirtualKeyPage virtualKeyPage = new VirtualKeyPage();
 	
-	public VirtualKeyRules waitVirtualKeyPage() {
+	public VirtualKeyMethod waitVirtualKeyPage() {
 		virtualKeyPage.waitH1TitleVirtualKey();
 		return this;
 	}
 	
-	public VirtualKeyRules clickGeneratePassword() {
+	public VirtualKeyMethod clickGeneratePassword() {
 		virtualKeyPage.clickButtonGeneratePassword();
 		return this;
 	}
-	public VirtualKeyRules getPasswordAndEnterVirtualKey() {
+	public VirtualKeyMethod getPasswordAndEnterVirtualKey() {
 		
 		String password = virtualKeyPage.getTextInputTextPassword();
 		String textButtonOne = virtualKeyPage.getTextButtonKeyOne();
@@ -43,12 +43,12 @@ public class VirtualKeyRules {
 		return this;
 
 	}
-	public VirtualKeyRules clickKeyEnter() {
+	public VirtualKeyMethod clickKeyEnter() {
 		virtualKeyPage.clickButtonKeyEnter();
 		return this;
 	}
 	
-	public VirtualKeyRules validateMessageAccessAllowed() {
+	public VirtualKeyMethod validateMessageAccessAllowed() {
 		String expected = "Acesso permitido!";
 		String actual = virtualKeyPage.getTextMessageBox();
 		System.out.println(" - :[" + expected + "]:[" + actual + "]");
@@ -56,7 +56,7 @@ public class VirtualKeyRules {
 		return this;
 	}
 	
-	public VirtualKeyRules validateMessageAccessDenied() {
+	public VirtualKeyMethod validateMessageAccessDenied() {
 		String expected = "Acesso negado!";
 		String actual = virtualKeyPage.getTextMessageBox();
 		System.out.println(" - :[" + expected + "]:[" + actual + "]");

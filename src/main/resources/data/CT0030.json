@@ -1,0 +1,15 @@
+{
+	"registrationType":"Pessoa Jurídica",
+	"name":"",
+	"cpf":"",
+	"fantasyName":"Bucyrus Erie",
+	"corporateName":"Bucyrus Erie do Brasil S.A",
+	"cnpj":"97647906000134",
+	"telephone":"1139001000",
+	"cellPhone":"11985009999",
+	"email":"bucyrus@bucyrus.com",
+	"customerAuthorizesSendingOfInformationByEmail":"Sim",
+	"inconsistencyMessage":"",
+	"displaysRegistrationConfirmationMessage":"",
+	"displaysConfirmationMessageBeforeClearingFields":""
+}

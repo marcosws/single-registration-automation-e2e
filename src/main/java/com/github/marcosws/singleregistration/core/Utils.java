@@ -67,9 +67,16 @@ public class Utils {
 	
 	public static String getFullPathResource(String partialPathFile) {
 		
-		String path = FilenameUtils.separatorsToSystem(partialPathFile);
-		URL resource = Utils.class.getClassLoader().getResource(path);
+		URL resource = null;
 		URI uri = null;
+		if(System.getProperty("os.name").equalsIgnoreCase("linux")) {
+			resource = Utils.class.getResource(partialPathFile);
+		}
+		else {
+			String path = FilenameUtils.separatorsToSystem(partialPathFile);
+			resource = Utils.class.getClassLoader().getResource(path);
+		}
+		
 		try {
 			uri = resource.toURI();
 		} 

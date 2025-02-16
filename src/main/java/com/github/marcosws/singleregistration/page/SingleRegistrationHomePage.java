@@ -39,7 +39,7 @@ public class SingleRegistrationHomePage extends BasePage {
 	@FindBy(id="razao-social")
 	private WebElement inputTextCorporateName;
 	
-	@FindBy(id="razao-social")
+	@FindBy(id="cnpj")
 	private WebElement inputTextCnpj;
 	
 	@FindBy(id="cpf")
